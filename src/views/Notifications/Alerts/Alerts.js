@@ -1,146 +1,150 @@
-import React, { Component } from 'react';
-import { Alert, Card, CardBody, CardHeader, Col, Row } from 'reactstrap';
+import React from 'react'
+import {
+  CAlert,
+  CAlertHeading,
+  CAlertLink,
+  CCard,
+  CCardBody,
+  CCardHeader,
+  CCol,
+  CRow,
+} from '@coreui/react'
+import { DocsCallout, DocsExample } from 'src/components'
 
-class Alerts extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      visible: true,
-    };
-
-    this.onDismiss = this.onDismiss.bind(this);
-  }
-
-  onDismiss() {
-    this.setState({ visible: false });
-  }
-
-  render() {
-    return (
-      <div className="animated fadeIn">
-        <Row>
-          <Col xs="12" md="6">
-            <Card>
-              <CardHeader>
-                <i className="fa fa-align-justify"></i><strong>Alerts</strong>
-                <div className="card-header-actions">
-                  <a href="https://reactstrap.github.io/components/alerts/" rel="noreferrer noopener" target="_blank" className="card-header-action">
-                    <small className="text-muted">docs</small>
-                  </a>
-                </div>
-              </CardHeader>
-              <CardBody>
-                <Alert color="primary">
-                  This is a primary alert — check it out!
-                </Alert>
-                <Alert color="secondary">
-                  This is a secondary alert — check it out!
-                </Alert>
-                <Alert color="success">
-                  This is a success alert — check it out!
-                </Alert>
-                <Alert color="danger">
-                  This is a danger alert — check it out!
-                </Alert>
-                <Alert color="warning">
-                  This is a warning alert — check it out!
-                </Alert>
-                <Alert color="info">
-                  This is a info alert — check it out!
-                </Alert>
-                <Alert color="light">
-                  This is a light alert — check it out!
-                </Alert>
-                <Alert color="dark">
-                  This is a dark alert — check it out!
-                </Alert>
-              </CardBody>
-            </Card>
-          </Col>
-          <Col xs="12" md="6">
-            <Card>
-              <CardHeader>
-                <i className="fa fa-align-justify"></i><strong>Alerts</strong>
-                <small> use <code>.alert-link</code> to provide links</small>
-              </CardHeader>
-              <CardBody>
-                <Alert color="primary">
-                  {/*eslint-disable-next-line*/}
-                  This is a primary alert with <a href="#" className="alert-link">an example link</a>. Give it a click if you like.
-                </Alert>
-                <Alert color="secondary">
-                  {/*eslint-disable-next-line*/}
-                  This is a secondary alert with <a href="#" className="alert-link">an example link</a>. Give it a click if you like.
-                </Alert>
-                <Alert color="success">
-                  {/*eslint-disable-next-line*/}
-                  This is a success alert with <a href="#" className="alert-link">an example link</a>. Give it a click if you like.
-                </Alert>
-                <Alert color="danger">
-                  {/*eslint-disable-next-line*/}
-                  This is a danger alert with <a href="#" className="alert-link">an example link</a>. Give it a click if you like.
-                </Alert>
-                <Alert color="warning">
-                  {/*eslint-disable-next-line*/}
-                  This is a warning alert with <a href="#" className="alert-link">an example link</a>. Give it a click if you like.
-                </Alert>
-                <Alert color="info">
-                  {/*eslint-disable-next-line*/}
-                  This is a info alert with <a href="#" className="alert-link">an example link</a>. Give it a click if you like.
-                </Alert>
-                <Alert color="light">
-                  {/*eslint-disable-next-line*/}
-                  This is a light alert with <a href="#" className="alert-link">an example link</a>. Give it a click if you like.
-                </Alert>
-                <Alert color="dark">
-                  {/*eslint-disable-next-line*/}
-                  This is a dark alert with <a href="#" className="alert-link">an example link</a>. Give it a click if you like.
-                </Alert>
-              </CardBody>
-            </Card>
-          </Col>
-        </Row>
-        <Row>
-          <Col xs="12" md="6">
-            <Card>
-              <CardHeader>
-                <i className="fa fa-align-justify"></i><strong>Alerts</strong>
-                <small>additional content</small>
-              </CardHeader>
-              <CardBody>
-                <Alert color="success">
-                  <h4 className="alert-heading">Well done!</h4>
-                  <p>
-                    Aww yeah, you successfully read this important alert message. This example text is going
-                    to run a bit longer so that you can see how spacing within an alert works with this kind
-                    of content.
-                  </p>
-                  <hr />
-                  <p className="mb-0">
-                    Whenever you need to, be sure to use margin utilities to keep things nice and tidy.
-                  </p>
-                </Alert>
-              </CardBody>
-            </Card>
-          </Col>
-          <Col xs="12" md="6">
-            <Card>
-              <CardHeader>
-                <i className="fa fa-align-justify"></i><strong>Alerts</strong>
-                <small>dismissing</small>
-              </CardHeader>
-              <CardBody>
-                <Alert color="info" isOpen={this.state.visible} toggle={this.onDismiss}>
-                  I am an alert and I can be dismissed!
-                </Alert>
-              </CardBody>
-            </Card>
-          </Col>
-        </Row>
-      </div>
-    );
-  }
+const Alerts = () => {
+  return (
+    <CRow>
+      <CCol xs={12}>
+        <DocsCallout name="Alert" href="components/alert" />
+      </CCol>
+      <CCol xs={12}>
+        <CCard className="mb-4">
+          <CCardHeader>
+            <strong>React Alert</strong>
+          </CCardHeader>
+          <CCardBody>
+            <p className="text-medium-emphasis small">
+              React Alert is prepared for any length of text, as well as an optional close button.
+              For a styling, use one of the <strong>required</strong> contextual <code>color</code>{' '}
+              props (e.g., <code>primary</code>). For inline dismissal, use the{' '}
+              <a href="https://coreui.io/react/docs/4.0/components/alert#dismissing">
+                dismissing prop
+              </a>
+              .
+            </p>
+            <DocsExample href="components/alert">
+              <CAlert color="primary">A simple primary alert—check it out!</CAlert>
+              <CAlert color="secondary">A simple secondary alert—check it out!</CAlert>
+              <CAlert color="success">A simple success alert—check it out!</CAlert>
+              <CAlert color="danger">A simple danger alert—check it out!</CAlert>
+              <CAlert color="warning">A simple warning alert—check it out!</CAlert>
+              <CAlert color="info">A simple info alert—check it out!</CAlert>
+              <CAlert color="light">A simple light alert—check it out!</CAlert>
+              <CAlert color="dark">A simple dark alert—check it out!</CAlert>
+            </DocsExample>
+          </CCardBody>
+        </CCard>
+      </CCol>
+      <CCol xs={12}>
+        <CCard className="mb-4">
+          <CCardHeader>
+            <strong>React Alert</strong> <small>Link color</small>
+          </CCardHeader>
+          <CCardBody>
+            <p className="text-medium-emphasis small">
+              Use the <code>&lt;CAlertLink&gt;</code> component to immediately give matching colored
+              links inside any alert.
+            </p>
+            <DocsExample href="components/alert#link-color">
+              <CAlert color="primary">
+                A simple primary alert with <CAlertLink href="#">an example link</CAlertLink>. Give
+                it a click if you like.
+              </CAlert>
+              <CAlert color="secondary">
+                A simple secondary alert with <CAlertLink href="#">an example link</CAlertLink>.
+                Give it a click if you like.
+              </CAlert>
+              <CAlert color="success">
+                A simple success alert with <CAlertLink href="#">an example link</CAlertLink>. Give
+                it a click if you like.
+              </CAlert>
+              <CAlert color="danger">
+                A simple danger alert with <CAlertLink href="#">an example link</CAlertLink>. Give
+                it a click if you like.
+              </CAlert>
+              <CAlert color="warning">
+                A simple warning alert with <CAlertLink href="#">an example link</CAlertLink>. Give
+                it a click if you like.
+              </CAlert>
+              <CAlert color="info">
+                A simple info alert with <CAlertLink href="#">an example link</CAlertLink>. Give it
+                a click if you like.
+              </CAlert>
+              <CAlert color="light">
+                A simple light alert with <CAlertLink href="#">an example link</CAlertLink>. Give it
+                a click if you like.
+              </CAlert>
+              <CAlert color="dark">
+                A simple dark alert with <CAlertLink href="#">an example link</CAlertLink>. Give it
+                a click if you like.
+              </CAlert>
+            </DocsExample>
+          </CCardBody>
+        </CCard>
+      </CCol>
+      <CCol xs={12}>
+        <CCard className="mb-4">
+          <CCardHeader>
+            <strong>React Alert</strong> <small>Additional content</small>
+          </CCardHeader>
+          <CCardBody>
+            <p className="text-medium-emphasis small">
+              Alert can also incorporate supplementary components &amp; elements like heading,
+              paragraph, and divider.
+            </p>
+            <DocsExample href="components/alert#additional-content">
+              <CAlert color="success">
+                <CAlertHeading tag="h4">Well done!</CAlertHeading>
+                <p>
+                  Aww yeah, you successfully read this important alert message. This example text is
+                  going to run a bit longer so that you can see how spacing within an alert works
+                  with this kind of content.
+                </p>
+                <hr />
+                <p className="mb-0">
+                  Whenever you need to, be sure to use margin utilities to keep things nice and
+                  tidy.
+                </p>
+              </CAlert>
+            </DocsExample>
+          </CCardBody>
+        </CCard>
+      </CCol>
+      <CCol xs={12}>
+        <CCard className="mb-4">
+          <CCardHeader>
+            <strong>React Alert</strong> <small>Dismissing</small>
+          </CCardHeader>
+          <CCardBody>
+            <p className="text-medium-emphasis small">
+              Alerts can also be easily dismissed. Just add the <code>dismissible</code> prop.
+            </p>
+            <DocsExample href="components/alert#dismissing">
+              <CAlert
+                color="warning"
+                dismissible
+                onClose={() => {
+                  alert('👋 Well, hi there! Thanks for dismissing me.')
+                }}
+              >
+                <strong>Go right ahead</strong> and click that dimiss over there on the right.
+              </CAlert>
+            </DocsExample>
+          </CCardBody>
+        </CCard>
+      </CCol>
+    </CRow>
+  )
 }
 
-export default Alerts;
+export default Alerts

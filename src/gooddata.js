@@ -1,14 +1,9 @@
-import { factory } from '@gooddata/gooddata-js';
+// (C) 2021 GoodData Corporation
+import bearFactory from '@gooddata/sdk-backend-bear'
+import { AnonymousAuthProvider } from '@gooddata/sdk-backend-base'
 
-const sdk = factory();
+const backend = bearFactory({
+  hostname: 'https://interactive-examples-proxy.herokuapp.com/',
+}).withAuthentication(new AnonymousAuthProvider())
 
-// GoodData project (= workspace) id used by Live Examples
-// https://gooddata-examples.herokuapp.com/
-const projectId = 'xms7ga4tf3g3nzucd8380o2bev8oeknp';
-
-window.gooddata = sdk; // only for dev purposes
-
-export default {
-  projectId,
-  sdk
-};
+export default backend

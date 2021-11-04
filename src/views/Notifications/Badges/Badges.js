@@ -1,87 +1,125 @@
-import React, { Component } from 'react';
-import { Badge, Button, Card, CardBody, CardFooter, CardHeader, Col, Row } from 'reactstrap';
+import React from 'react'
+import { CButton, CCard, CCardBody, CCardHeader, CCol, CBadge, CRow } from '@coreui/react'
+import { DocsCallout, DocsExample } from 'src/components'
 
-class Badges extends Component {
-  render() {
-    return (
-      <div className="animated fadeIn">
-        <Row>
-          <Col xs="12" md="6">
-            <Card>
-              <CardHeader>
-                <i className="fa fa-align-justify"></i><strong>Badges</strong>
-                <div className="card-header-actions">
-                  <a href="https://reactstrap.github.io/components/badge/" rel="noreferrer noopener" target="_blank" className="card-header-action">
-                    <small className="text-muted">docs</small>
-                  </a>
-                </div>
-              </CardHeader>
-              <CardBody>
-                <h1>Heading <Badge color="secondary">New</Badge></h1>
-                <h2>Heading <Badge color="secondary">New</Badge></h2>
-                <h3>Heading <Badge color="secondary">New</Badge></h3>
-                <h4>Heading <Badge color="secondary">New</Badge></h4>
-                <h5>Heading <Badge color="secondary">New</Badge></h5>
-                <h6>Heading <Badge color="secondary">New</Badge></h6>
-              </CardBody>
-              <CardFooter>
-                <Button color="primary" outline>
-                  Notifications <Badge color="secondary" pill style={{ position: 'static' }}>9</Badge>
-                </Button>
-              </CardFooter>
-            </Card>
-          </Col>
-          <Col xs="12" md="6">
-            <Card>
-              <CardHeader>
-                <i className="fa fa-align-justify"></i><strong>Badges</strong> <small>contextual variations</small>
-              </CardHeader>
-              <CardBody>
-                <Badge className="mr-1" color="primary">Primary</Badge>
-                <Badge className="mr-1" color="secondary">Secondary</Badge>
-                <Badge className="mr-1" color="success">Success</Badge>
-                <Badge className="mr-1" color="danger">Danger</Badge>
-                <Badge className="mr-1" color="warning">Warning</Badge>
-                <Badge className="mr-1" color="info">Info</Badge>
-                <Badge className="mr-1" color="light">Light</Badge>
-                <Badge className="mr-1" color="dark">Dark</Badge>
-              </CardBody>
-            </Card>
-            <Card>
-              <CardHeader>
-                <i className="fa fa-align-justify"></i><strong>Badges</strong> <small>pill badges</small>
-              </CardHeader>
-              <CardBody>
-                <Badge className="mr-1" color="primary" pill>Primary</Badge>
-                <Badge className="mr-1" color="secondary" pill>Secondary</Badge>
-                <Badge className="mr-1" color="success" pill>Success</Badge>
-                <Badge className="mr-1" color="danger" pill>Danger</Badge>
-                <Badge className="mr-1" color="warning" pill>Warning</Badge>
-                <Badge className="mr-1" color="info" pill>Info</Badge>
-                <Badge className="mr-1" color="light" pill>Light</Badge>
-                <Badge className="mr-1" color="dark" pill>Dark</Badge>
-              </CardBody>
-            </Card>
-            <Card>
-              <CardHeader>
-                <i className="fa fa-align-justify"></i><strong>Badges</strong> <small>links</small>
-              </CardHeader>
-              <CardBody>
-                <Badge className="mr-1" href="#" color="primary">Primary</Badge>
-                <Badge className="mr-1" href="#" color="secondary">Secondary</Badge>
-                <Badge className="mr-1" href="#" color="success">Success</Badge>
-                <Badge className="mr-1" href="#" color="danger">Danger</Badge>
-                <Badge className="mr-1" href="#" color="warning">Warning</Badge>
-                <Badge className="mr-1" href="#" color="info">Info</Badge>
-                <Badge className="mr-1" href="#" color="light">Light</Badge>
-                <Badge className="mr-1" href="#" color="dark" pill>Dark</Badge>
-              </CardBody>
-            </Card>
-          </Col>
-        </Row>
-      </div>
-    );
-  }
+const Badges = () => {
+  return (
+    <CRow>
+      <CCol xs={12}>
+        <DocsCallout name="Badges" href="components/badge" />
+      </CCol>
+      <CCol lg={6}>
+        <CCard className="mb-4">
+          <CCardHeader>
+            <strong>React Badges</strong> <small>Dismissing</small>
+          </CCardHeader>
+          <CCardBody>
+            <p className="text-medium-emphasis small">
+              Bootstrap badge scale to suit the size of the parent element by using relative font
+              sizing and <code>em</code> units.
+            </p>
+            <DocsExample href="components/badge">
+              <h1>
+                Example heading <CBadge color="secondary">New</CBadge>
+              </h1>
+              <h2>
+                Example heading <CBadge color="secondary">New</CBadge>
+              </h2>
+              <h3>
+                Example heading <CBadge color="secondary">New</CBadge>
+              </h3>
+              <h4>
+                Example heading <CBadge color="secondary">New</CBadge>
+              </h4>
+              <h5>
+                Example heading <CBadge color="secondary">New</CBadge>
+              </h5>
+              <h6>
+                Example heading <CBadge color="secondary">New</CBadge>
+              </h6>
+            </DocsExample>
+            <p className="text-medium-emphasis small">
+              Badges can be used as part of links or buttons to provide a counter.
+            </p>
+            <DocsExample href="components/badge">
+              <CButton color="primary">
+                Notifications <CBadge color="secondary">4</CBadge>
+              </CButton>
+            </DocsExample>
+            <p className="text-medium-emphasis small">
+              Remark that depending on how you use them, badges may be complicated for users of
+              screen readers and related assistive technologies.
+            </p>
+            <p className="text-medium-emphasis small">
+              Unless the context is clear, consider including additional context with a visually
+              hidden piece of additional text.
+            </p>
+            <DocsExample href="components/badge">
+              <CButton color="primary">
+                Profile <CBadge color="secondary">9</CBadge>
+                <span className="visually-hidden">unread messages</span>
+              </CButton>
+            </DocsExample>
+          </CCardBody>
+        </CCard>
+      </CCol>
+      <CCol lg={6}>
+        <CCard className="mb-4">
+          <CCardHeader>
+            <strong>React Badges</strong> <small>Contextual variations</small>
+          </CCardHeader>
+          <CCardBody>
+            <p className="text-medium-emphasis small">
+              Add any of the below-mentioned <code>color</code> props to modify the presentation of
+              a badge.
+            </p>
+            <DocsExample href="components/badge#contextual-variations">
+              <CBadge color="primary">primary</CBadge>
+              <CBadge color="success">success</CBadge>
+              <CBadge color="danger">danger</CBadge>
+              <CBadge color="warning">warning</CBadge>
+              <CBadge color="info">info</CBadge>
+              <CBadge color="light">light</CBadge>
+              <CBadge color="dark">dark</CBadge>
+            </DocsExample>
+          </CCardBody>
+        </CCard>
+        <CCard className="mb-4">
+          <CCardHeader>
+            <strong>React Badges</strong> <small>Pill badges</small>
+          </CCardHeader>
+          <CCardBody>
+            <p className="text-medium-emphasis small">
+              Apply the <code>shape=&#34;rounded-pill&#34;</code> prop to make badges rounded.
+            </p>
+            <DocsExample href="components/badge#pill-badges">
+              <CBadge color="primary" shape="rounded-pill">
+                primary
+              </CBadge>
+              <CBadge color="success" shape="rounded-pill">
+                success
+              </CBadge>
+              <CBadge color="danger" shape="rounded-pill">
+                danger
+              </CBadge>
+              <CBadge color="warning" shape="rounded-pill">
+                warning
+              </CBadge>
+              <CBadge color="info" shape="rounded-pill">
+                info
+              </CBadge>
+              <CBadge color="light" shape="rounded-pill">
+                light
+              </CBadge>
+              <CBadge color="dark" shape="rounded-pill">
+                dark
+              </CBadge>
+            </DocsExample>
+          </CCardBody>
+        </CCard>
+      </CCol>
+    </CRow>
+  )
 }
 
-export default Badges;
+export default Badges

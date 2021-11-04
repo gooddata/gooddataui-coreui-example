@@ -1,56 +1,56 @@
-import React, { Component } from 'react';
-import { Button, Card, CardBody, CardHeader, Col, Container, Jumbotron, Row } from 'reactstrap';
+import React from 'react'
+import { CButton, CCard, CCardBody, CCardHeader, CCol, CContainer, CRow } from '@coreui/react'
+import { DocsLink } from 'src/components'
 
-class Jumbotrons extends Component {
-
-  render() {
-    return (
-      <div className="animated fadeIn">
-        <Row>
-          <Col>
-            <Card>
-              <CardHeader>
-                <i className="fa fa-align-justify"></i><strong>Jumbotron</strong>
-                <div className="card-header-actions">
-                  <a href="https://reactstrap.github.io/components/jumbotron/" rel="noreferrer noopener" target="_blank" className="card-header-action">
-                    <small className="text-muted">docs</small>
-                  </a>
-                </div>
-              </CardHeader>
-              <CardBody>
-                <Jumbotron>
-                  <h1 className="display-3">Hello, world!</h1>
-                  <p className="lead">This is a simple hero unit, a simple Jumbotron-style component for calling extra
-                    attention to featured content or information.</p>
-                  <hr className="my-2" />
-                  <p>It uses utility classes for typgraphy and spacing to space content out within the larger container.</p>
-                  <p className="lead">
-                    <Button color="primary">Learn More</Button>
-                  </p>
-                </Jumbotron>
-              </CardBody>
-            </Card>
-          </Col>
-          <Col>
-            <Card>
-              <CardHeader>
-                <i className="fa fa-align-justify"></i><strong>Jumbotron</strong>
-                <small> fluid</small>
-              </CardHeader>
-              <CardBody>
-                <Jumbotron fluid>
-                  <Container fluid>
-                    <h1 className="display-3">Fluid jumbotron</h1>
-                    <p className="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-                  </Container>
-                </Jumbotron>
-              </CardBody>
-            </Card>
-          </Col>
-        </Row>
-      </div>
-    );
-  }
+const Jumbotrons = () => {
+  return (
+    <>
+      <CCard className="mb-4">
+        <CCardHeader>
+          Jumbotron
+          <DocsLink name="CJumbotron" />
+        </CCardHeader>
+        <CCardBody>
+          <CContainer className="py-5" fluid>
+            <h1 className="display-5 fw-bold">Custom jumbotron</h1>
+            <p className="col-md-8 fs-4">
+              Using a series of utilities, you can create this jumbotron, just like the one in
+              previous versions of Bootstrap. Check out the examples below for how you can remix and
+              restyle it to your liking.
+            </p>
+            <CButton size="lg">Example button</CButton>
+          </CContainer>
+          <CRow className="align-items-md-stretch">
+            <CCol md={6}>
+              <div className="h-100 p-5 text-white bg-dark rounded-3">
+                <h2>Change the background</h2>
+                <p>
+                  Swap the background-color utility and add a `.text-*` color utility to mix up the
+                  jumbotron look. Then, mix and match with additional component themes and more.
+                </p>
+                <CButton color="light" variant="outline">
+                  DocsExample button
+                </CButton>
+              </div>
+            </CCol>
+            <CCol md={6}>
+              <div className="h-100 p-5 bg-light border rounded-3">
+                <h2>Add borders</h2>
+                <p>
+                  Or, keep it light and add a border for some added definition to the boundaries of
+                  your content. Be sure to look under the hood at the source HTML here as we&#39;ve
+                  adjusted the alignment and sizing of both column&#39;s content for equal-height.
+                </p>
+                <CButton color="secondary" variant="outline">
+                  DocsExample button
+                </CButton>
+              </div>
+            </CCol>
+          </CRow>
+        </CCardBody>
+      </CCard>
+    </>
+  )
 }
 
-export default Jumbotrons;
+export default Jumbotrons

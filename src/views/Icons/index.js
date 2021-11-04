@@ -1,8 +1,5 @@
-import CoreUIIcons from './CoreUIIcons';
-import Flags from './Flags';
-import FontAwesome from './FontAwesome';
-import SimpleLineIcons from './SimpleLineIcons';
+import CoreUIIcons from './coreui-icons'
+import Flags from './flags'
+import Brands from './brands'
 
-export {
-  CoreUIIcons, Flags, FontAwesome, SimpleLineIcons
-};
+export { CoreUIIcons, Flags, Brands }

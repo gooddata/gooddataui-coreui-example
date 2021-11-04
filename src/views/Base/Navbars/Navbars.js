@@ -1,118 +1,174 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react'
 import {
-  Card,
-  CardBody,
-  CardHeader,
-  Collapse,
-  DropdownItem,
-  DropdownMenu,
-  DropdownToggle,
-  Nav,
-  Navbar,
-  NavbarBrand,
-  NavbarToggler,
-  NavItem,
-  NavLink,
-  UncontrolledDropdown,
-} from 'reactstrap';
+  CCard,
+  CCardBody,
+  CCardHeader,
+  CCollapse,
+  CDropdownItem,
+  CDropdownMenu,
+  CDropdownToggle,
+  CForm,
+  CFormInput,
+  CImage,
+  CNavbar,
+  CNavbarNav,
+  CNavbarBrand,
+  CNavbarText,
+  CNavbarToggler,
+  CNavLink,
+  CDropdown,
+  CButton,
+} from '@coreui/react'
+import { DocsLink } from 'src/components'
 
-class Navbars extends Component {
+const CNavbars = () => {
+  const [visible, setVisible] = useState(false)
+  const [isOpenDropdown, setIsOpenDropdown] = useState(false)
+  const [navbarText, setNavbarText] = useState(false)
 
-  constructor(props) {
-    super(props);
+  return (
+    <>
+      <CCard className="mb-4">
+        <CCardHeader>
+          CNavbar
+          <DocsLink name="CNavbar" />
+        </CCardHeader>
+        <CCardBody>
+          <CNavbar expandable="sm" color="info">
+            <CNavbarToggler onClick={() => setVisible(!visible)} />
+            <CNavbarBrand>NavbarBrand</CNavbarBrand>
+            <CCollapse show={visible} navbar>
+              <CNavbarNav>
+                <CNavLink>Home</CNavLink>
+                <CNavLink>Link</CNavLink>
+              </CNavbarNav>
+              <CNavbarNav className="ms-auto">
+                <CForm className="d-flex">
+                  <CFormInput className="me-sm-2" placeholder="Search" size="sm" />
+                  <CButton color="light" className="my-2 my-sm-0" type="submit">
+                    Search
+                  </CButton>
+                </CForm>
+                <CDropdown inNav>
+                  <CDropdownToggle color="primary">Lang</CDropdownToggle>
+                  <CDropdownMenu>
+                    <CDropdownItem>EN</CDropdownItem>
+                    <CDropdownItem>ES</CDropdownItem>
+                    <CDropdownItem>RU</CDropdownItem>
+                    <CDropdownItem>FA</CDropdownItem>
+                  </CDropdownMenu>
+                </CDropdown>
+                <CDropdown inNav>
+                  <CDropdownToggle color="primary">User</CDropdownToggle>
+                  <CDropdownMenu>
+                    <CDropdownItem>Account</CDropdownItem>
+                    <CDropdownItem>Settings</CDropdownItem>
+                  </CDropdownMenu>
+                </CDropdown>
+              </CNavbarNav>
+            </CCollapse>
+          </CNavbar>
+        </CCardBody>
+      </CCard>
 
-    this.toggle = this.toggle.bind(this);
-    this.toggleNavbar = this.toggleNavbar.bind(this);
-    this.state = {
-      isOpen: false,
-      collapsed: true,
-    };
-  }
+      <CCard className="mb-4">
+        <CCardHeader>CNavbar brand</CCardHeader>
+        <CCardBody>
+          <CNavbar color="faded" light>
+            <CNavbarBrand>
+              <CImage
+                src="https://placekitten.com/g/30/30"
+                className="d-inline-block align-top"
+                alt="CoreuiVue"
+              />
+              CoreUI React
+            </CNavbarBrand>
+          </CNavbar>
+        </CCardBody>
+      </CCard>
 
-  toggle() {
-    this.setState({
-      isOpen: !this.state.isOpen,
-    });
-  }
+      <CCard className="mb-4">
+        <CCardHeader>CNavbar text</CCardHeader>
+        <CCardBody>
+          <CNavbar toggleable="sm" light color="light">
+            <CNavbarToggler
+              inNavbar
+              onClick={() => {
+                setNavbarText(!navbarText)
+              }}
+            />
+            <CNavbarBrand>NavbarBrand</CNavbarBrand>
+            <CCollapse show={navbarText}>
+              <CNavbarNav>
+                <CNavbarText>Navbar text</CNavbarText>
+              </CNavbarNav>
+            </CCollapse>
+          </CNavbar>
+        </CCardBody>
+      </CCard>
 
-  toggleNavbar() {
-    this.setState({
-      collapsed: !this.state.collapsed,
-    });
-  }
+      <CCard className="mb-4">
+        <CCardHeader>CNavbar dropdown</CCardHeader>
+        <CCardBody>
+          <CNavbar expandable="false" color="primary">
+            <CNavbarToggler
+              inNavbar
+              onClick={() => {
+                setIsOpenDropdown(!isOpenDropdown)
+              }}
+            />
+            <CCollapse show={isOpenDropdown} navbar>
+              <CNavbarNav>
+                <CNavLink>Home</CNavLink>
+                <CNavLink>Link</CNavLink>
+                <CDropdown inNav>
+                  <CDropdownToggle color="primary">Lang</CDropdownToggle>
+                  <CDropdownMenu>
+                    <CDropdownItem>EN</CDropdownItem>
+                    <CDropdownItem>ES</CDropdownItem>
+                    <CDropdownItem>RU</CDropdownItem>
+                    <CDropdownItem>FA</CDropdownItem>
+                  </CDropdownMenu>
+                </CDropdown>
+                <CDropdown inNav>
+                  <CDropdownToggle color="primary">User</CDropdownToggle>
+                  <CDropdownMenu>
+                    <CDropdownItem>Account</CDropdownItem>
+                    <CDropdownItem>Settings</CDropdownItem>
+                  </CDropdownMenu>
+                </CDropdown>
+              </CNavbarNav>
+            </CCollapse>
+          </CNavbar>
+        </CCardBody>
+      </CCard>
 
-  render() {
-    return (
-      <div className="animated fadeIn">
-        <Card>
-          <CardHeader>
-            <i className="fa fa-align-justify"></i><strong>Navbar</strong>
-            <div className="card-header-actions">
-              <a href="https://reactstrap.github.io/components/navbar/" rel="noreferrer noopener" target="_blank" className="card-header-action">
-                <small className="text-muted">docs</small>
-              </a>
-            </div>
-          </CardHeader>
-          <CardBody>
-            <Navbar color="info" light expand="md">
-              <NavbarBrand href="/">Bootstrap</NavbarBrand>
-              <NavbarToggler onClick={this.toggle} />
-              <Collapse isOpen={this.state.isOpen} navbar>
-                <Nav className="ml-auto" navbar>
-                  <NavItem>
-                    <NavLink href="#/components/navbars">Components</NavLink>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink href="https://github.com/reactstrap/reactstrap" target="_blank">Github</NavLink>
-                  </NavItem>
-                  <UncontrolledDropdown nav inNavbar>
-                    {/*Warning: React does not recognize the `inNavbar` prop on a DOM element.*/}
-                    {/*waiting for reactstrap@5.0.0-alpha.5*/}
-                    <DropdownToggle nav caret>
-                      Options
-                    </DropdownToggle>
-                    <DropdownMenu>
-                      <DropdownItem>
-                        Option 1
-                      </DropdownItem>
-                      <DropdownItem>
-                        Option 2
-                      </DropdownItem>
-                      <DropdownItem divider />
-                      <DropdownItem>
-                        Reset
-                      </DropdownItem>
-                    </DropdownMenu>
-                  </UncontrolledDropdown>
-                </Nav>
-              </Collapse>
-            </Navbar>
-          </CardBody>
-        </Card>
-        <Card>
-          <CardHeader>
-            <i className="fa fa-align-justify"></i><strong>Navbar Toggler</strong>
-          </CardHeader>
-          <CardBody>
-            <Navbar color="success" light>
-              <NavbarBrand href="/" className="mr-auto">Bootstrap</NavbarBrand>
-              <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
-              <Collapse isOpen={!this.state.collapsed} navbar>
-                <Nav navbar>
-                  <NavItem>
-                    <NavLink href="#/components/navbars">Components</NavLink>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink href="https://github.com/reactstrap/reactstrap">Github</NavLink>
-                  </NavItem>
-                </Nav>
-              </Collapse>
-            </Navbar>
-          </CardBody>
-        </Card>
-      </div>
-    );
-  }
+      <CCard className="mb-4">
+        <CCardHeader>CNavbar form</CCardHeader>
+        <CCardBody>
+          <CNavbar light color="light">
+            <CForm className="d-flex">
+              <CFormInput className="me-sm-2" placeholder="Search" size="sm" />
+              <CButton color="outline-success" className="my-2 my-sm-0" type="submit">
+                Search
+              </CButton>
+            </CForm>
+          </CNavbar>
+        </CCardBody>
+      </CCard>
+
+      <CCard className="mb-4">
+        <CCardHeader>CNavbar input group</CCardHeader>
+        <CCardBody>
+          <CNavbar light color="light">
+            <CForm className="d-flex">
+              <CFormInput className="me-sm-2" placeholder="Username" />
+            </CForm>
+          </CNavbar>
+        </CCardBody>
+      </CCard>
+    </>
+  )
 }
 
-export default Navbars;
+export default CNavbars
